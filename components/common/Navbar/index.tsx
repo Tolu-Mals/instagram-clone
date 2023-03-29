@@ -22,7 +22,14 @@ const Wrapper = chakra("div", {
 
 const Nav = chakra("nav", {
   baseStyle: {
-    display: "flex",
+    display: { base: "none", md: "flex" },
+    gap: "22px",
+  },
+});
+
+const MobileNav = chakra("nav", {
+  baseStyle: {
+    display: { base: "flex", md: "none" },
     gap: "22px",
   },
 });
@@ -34,7 +41,7 @@ const brand = (
 );
 
 const searchBar = (
-  <InputGroup size="sm" maxWidth="215px">
+  <InputGroup size="sm" maxWidth="215px" display={{ base: "none", md: "flex" }}>
     <InputLeftElement pointerEvents="none">
       <Search2Icon color="gray.300" />
     </InputLeftElement>
@@ -117,6 +124,24 @@ const navLinkGroup = (
   </Nav>
 );
 
+const mobileNavConfigs = [
+  {
+    key: 1,
+    href: "/",
+    imgSrc: "/assets/icons/NewPosts.svg",
+    imgAlt: "New post icon",
+  },
+  {
+    key: 2,
+    href: "/",
+    imgSrc: "/assets/icons/ActivityFeed.svg",
+    imgAlt: "Activity feed icon",
+  },
+];
+
+const mobileLinks = mobileNavConfigs.map(renderNavLink);
+const mobileNavLinkGroup = <MobileNav>{mobileLinks}</MobileNav>;
+
 const Navbar = () => {
   return (
     <Wrapper>
@@ -129,9 +154,15 @@ const Navbar = () => {
             height: "100%",
           }}
         >
+          {/* Shows on desktop and mobile */}
           {brand}
+
+          {/* Shows on desktop only */}
           {searchBar}
           {navLinkGroup}
+
+          {/* Shows on mobile only */}
+          {mobileNavLinkGroup}
         </Box>
       </LayoutContainer>
     </Wrapper>
