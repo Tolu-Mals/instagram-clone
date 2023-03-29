@@ -1,50 +1,53 @@
 import React from "react";
 import {
   chakra,
-  Flex,
   Input,
   InputGroup,
   InputLeftElement,
   Link,
+  Box,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import Image from "next/image";
 import { Search2Icon } from "@chakra-ui/icons";
 import { NavLinkConfig } from "./types";
+import LayoutContainer from "../LayoutContainer";
 
-const NavWrapper = chakra("nav", {
+const Wrapper = chakra("div", {
+  baseStyle: {
+    borderBottom: "1px solid var(--chakra-colors-gray-400)",
+    height: "53px",
+  },
+});
+
+const Nav = chakra("nav", {
   baseStyle: {
     display: "flex",
+    gap: "22px",
   },
 });
 
 const brand = (
-  <Link as={NextLink} href="/">
+  <Link as={NextLink} href="/" display="block">
     <Image src="/assets/logo.png" alt="logo" width={103} height={29} />
   </Link>
 );
 
 const searchBar = (
-  <InputGroup>
+  <InputGroup size="sm" maxWidth="215px">
     <InputLeftElement pointerEvents="none">
       <Search2Icon color="gray.300" />
     </InputLeftElement>
     <Input
-      type="tel"
-      placeholder="Phone number"
+      type="text"
+      placeholder="Search"
       variant="outline"
-      borderColor="gray.400"
+      borderColor="gray.300"
+      _focus={{ outline: "none", boxShadow: "none", borderColor: "gray.500" }}
+      borderRadius="4px"
     />
   </InputGroup>
 );
-
-const renderNavLink = ({ href, imgSrc, imgAlt }: NavLinkConfig) => {
-  return (
-    <Link as={NextLink} href="/">
-      <Image src="" alt="Home icon" width={22} height={22} />
-    </Link>
-  );
-};
 
 const navLinkConfigs: NavLinkConfig[] = [
   {
@@ -56,44 +59,59 @@ const navLinkConfigs: NavLinkConfig[] = [
   {
     key: 1,
     href: "/",
-    imgSrc: "/assets/icons/Home.svg",
+    imgSrc: "/assets/icons/Messenger.svg",
     imgAlt: "Home icon",
   },
   {
     key: 2,
     href: "/",
-    imgSrc: "/assets/icons/Home.svg",
+    imgSrc: "/assets/icons/NewPosts.svg",
     imgAlt: "Home icon",
   },
   {
     key: 3,
     href: "/",
-    imgSrc: "/assets/icons/Home.svg",
+    imgSrc: "/assets/icons/FindPeople.svg",
     imgAlt: "Home icon",
   },
   {
     key: 4,
     href: "/",
-    imgSrc: "/assets/icons/Home.svg",
-    imgAlt: "Home icon",
-  },
-  {
-    key: 5,
-    href: "/",
-    imgSrc: "/assets/icons/Home.svg",
+    imgSrc: "/assets/icons/ActivityFeed.svg",
     imgAlt: "Home icon",
   },
 ];
 
-const navLinkGroup = <Flex></Flex>;
+const renderNavLink = ({ key, href, imgSrc, imgAlt }: NavLinkConfig) => {
+  return (
+    <Link as={NextLink} href={href} key={key}>
+      <Image src={imgSrc} alt={imgAlt} width={22} height={22} />
+    </Link>
+  );
+};
+
+const navLinks = navLinkConfigs.map(renderNavLink);
+
+const navLinkGroup = <Nav>{navLinks}</Nav>;
 
 const Navbar = () => {
   return (
-    <NavWrapper>
-      {brand}
-      {searchBar}
-      {navLinkGroup}
-    </NavWrapper>
+    <Wrapper>
+      <LayoutContainer height="100%">
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            height: "100%",
+          }}
+        >
+          {brand}
+          {searchBar}
+          {navLinkGroup}
+        </Box>
+      </LayoutContainer>
+    </Wrapper>
   );
 };
 
