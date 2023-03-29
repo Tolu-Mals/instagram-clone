@@ -15,7 +15,12 @@ const Wrapper = chakra(Flex, {
   },
 });
 
-const Item = () => {
+interface ItemProps {
+  name: string;
+  imgSrc: string;
+}
+
+const Item = ({ name, imgSrc }: ItemProps) => {
   return (
     <Wrapper>
       <Box
@@ -27,13 +32,15 @@ const Item = () => {
         }}
       >
         <Image
-          src="/assets/images/User1.png"
+          src={imgSrc}
           alt="User's display picture"
           width={58.5}
           height={58.5}
         />
       </Box>
-      <Text>your story</Text>
+      <Text noOfLines={1} fontSize="14px">
+        {name}
+      </Text>
     </Wrapper>
   );
 };
