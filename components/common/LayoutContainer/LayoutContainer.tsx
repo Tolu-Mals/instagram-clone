@@ -6,12 +6,10 @@ interface LayoutContainerProps {
   height?: string | number;
 }
 
-const LayoutContainer = ({ children, height }: LayoutContainerProps) => {
+export const LayoutContainer = ({ children, height }: LayoutContainerProps) => {
   return (
     <Container maxWidth="935px" height={height ?? ""}>
       {children}
     </Container>
   );
 };
-
-export default LayoutContainer;
