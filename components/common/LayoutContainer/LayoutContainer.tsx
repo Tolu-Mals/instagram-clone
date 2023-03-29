@@ -8,7 +8,11 @@ interface LayoutContainerProps {
 
 export const LayoutContainer = ({ children, height }: LayoutContainerProps) => {
   return (
-    <Container maxWidth="935px" height={height ?? ""}>
+    <Container
+      maxWidth="935px"
+      height={height ?? ""}
+      position={{ base: "relative", md: "static" }}
+    >
       {children}
     </Container>
   );

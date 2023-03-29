@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, chakra } from "@chakra-ui/react";
 import Item from "./Item";
 const Slider = require("react-slick").default;
 import "slick-carousel/slick/slick.css";
@@ -67,10 +67,20 @@ const renderStory = (story: Story) => (
   <Item key={story.key} imgSrc={story.imgSrc} name={story.name} />
 );
 
+const Wrapper = chakra(Box, {
+  baseStyle: {
+    paddingY: "1rem",
+    position: { base: "absolute", md: "static" },
+    left: 0,
+    top: 0,
+    width: "100%",
+  },
+});
+
 export const StoryList = () => {
   return (
-    <Box py="1rem">
+    <Wrapper>
       <Slider {...settings}>{storyConfigs.map(renderStory)}</Slider>
-    </Box>
+    </Wrapper>
   );
 };
