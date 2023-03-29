@@ -10,9 +10,9 @@ const settings = {
   dots: false,
   infinite: false,
   speed: 500,
-  slidesToShow: 3.4,
+  slidesToShow: 3.7,
   slidesToScroll: 3,
-  useArrows: true,
+  useArrows: false,
 };
 
 const storyConfigs = [
@@ -79,7 +79,7 @@ const Wrapper = chakra(Box, {
 
 export const StoryList = () => {
   return (
-    <Wrapper>
+    <Wrapper overflowX="hidden">
       <Slider {...settings}>{storyConfigs.map(renderStory)}</Slider>
     </Wrapper>
   );
