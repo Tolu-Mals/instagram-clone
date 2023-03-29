@@ -1,3 +1,4 @@
+import Navbar from "@/components/common/Navbar";
 import Head from "next/head";
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <h1>hello world</h1>
+      <Navbar />
     </>
   );
 }
