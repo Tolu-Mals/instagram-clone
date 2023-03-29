@@ -6,7 +6,6 @@ import fonts from './fonts';
 const theme = extendTheme({
     styles,
     fonts,
-    global,
     colors
 });
 
