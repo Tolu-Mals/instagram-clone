@@ -29,6 +29,7 @@ const Item = ({ name, imgSrc }: ItemProps) => {
           backgroundImage: "linear-gradient(#DE0046, #F7A34B)",
           borderRadius: "50%",
           background: "linear-gradient(#F7A34B, #DE0046)",
+          marginBottom: "4px",
         }}
       >
         <Image
@@ -38,7 +39,7 @@ const Item = ({ name, imgSrc }: ItemProps) => {
           height={58.5}
         />
       </Box>
-      <Text noOfLines={1} fontSize="14px">
+      <Text noOfLines={1} fontSize="14px" fontWeight={400}>
         {name}
       </Text>
     </Wrapper>
