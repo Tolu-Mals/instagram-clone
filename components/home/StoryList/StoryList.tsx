@@ -1,15 +1,16 @@
 import React from "react";
-import { chakra, Flex, Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Item from "./Item";
 const Slider = require("react-slick").default;
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Story } from "./types";
 
 const settings = {
   dots: false,
   infinite: false,
   speed: 500,
-  slidesToShow: 3.2,
+  slidesToShow: 3.4,
   slidesToScroll: 3,
   useArrows: true,
 };
@@ -62,14 +63,14 @@ const storyConfigs = [
   },
 ];
 
+const renderStory = (story: Story) => (
+  <Item key={story.key} imgSrc={story.imgSrc} name={story.name} />
+);
+
 export const StoryList = () => {
   return (
     <Box py="1rem">
-      <Slider {...settings}>
-        {storyConfigs.map((story) => (
-          <Item key={story.key} imgSrc={story.imgSrc} name={story.name} />
-        ))}
-      </Slider>
+      <Slider {...settings}>{storyConfigs.map(renderStory)}</Slider>
     </Box>
   );
 };
