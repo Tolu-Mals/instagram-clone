@@ -1,4 +1,5 @@
 import { Navbar, LayoutContainer } from "@/components/common";
+import { StoryList } from "@/components/home";
 import Head from "next/head";
 
 export default function Home() {
@@ -11,7 +12,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <Navbar />
-      <LayoutContainer></LayoutContainer>
+      <LayoutContainer>
+        <StoryList />
+      </LayoutContainer>
     </>
   );
 }

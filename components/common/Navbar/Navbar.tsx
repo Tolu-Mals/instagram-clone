@@ -36,7 +36,7 @@ const MobileNav = chakra("nav", {
 
 const brand = (
   <Link as={NextLink} href="/" display="block">
-    <Image src="/assets/logo.png" alt="logo" width={103} height={29} />
+    <Image src="/assets/logo.png" alt="logo" width={103} height={29} priority />
   </Link>
 );
 
