@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/common";
+import { Navbar, LayoutContainer } from "@/components/common";
 import Head from "next/head";
 
 export default function Home() {
@@ -11,6 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <Navbar />
+      <LayoutContainer></LayoutContainer>
     </>
   );
 }
