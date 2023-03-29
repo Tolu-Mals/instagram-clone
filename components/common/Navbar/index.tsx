@@ -60,25 +60,25 @@ const navLinkConfigs: NavLinkConfig[] = [
     key: 1,
     href: "/",
     imgSrc: "/assets/icons/Messenger.svg",
-    imgAlt: "Home icon",
+    imgAlt: "Messenger icon",
   },
   {
     key: 2,
     href: "/",
     imgSrc: "/assets/icons/NewPosts.svg",
-    imgAlt: "Home icon",
+    imgAlt: "New post icon",
   },
   {
     key: 3,
     href: "/",
     imgSrc: "/assets/icons/FindPeople.svg",
-    imgAlt: "Home icon",
+    imgAlt: "Explore icon",
   },
   {
     key: 4,
     href: "/",
     imgSrc: "/assets/icons/ActivityFeed.svg",
-    imgAlt: "Home icon",
+    imgAlt: "Activity feed icon",
   },
 ];
 
@@ -91,8 +91,31 @@ const renderNavLink = ({ key, href, imgSrc, imgAlt }: NavLinkConfig) => {
 };
 
 const navLinks = navLinkConfigs.map(renderNavLink);
+const navProfileLink = (
+  <Link
+    as={NextLink}
+    href="/profile"
+    sx={{
+      img: {
+        borderRadius: "50%",
+      },
+    }}
+  >
+    <Image
+      src="/assets/images/User1.png"
+      alt="Profile picture"
+      width={24}
+      height={24}
+    />
+  </Link>
+);
 
-const navLinkGroup = <Nav>{navLinks}</Nav>;
+const navLinkGroup = (
+  <Nav>
+    {navLinks}
+    {navProfileLink}
+  </Nav>
+);
 
 const Navbar = () => {
   return (
