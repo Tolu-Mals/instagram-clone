@@ -64,16 +64,26 @@ const storyConfigs = [
 ];
 
 const renderStory = (story: Story) => (
-  <Item key={story.key} imgSrc={story.imgSrc} name={story.name} />
+  <Item key={story.key} size={58.5} imgSrc={story.imgSrc} name={story.name} />
 );
 
 const Wrapper = chakra(Box, {
   baseStyle: {
-    paddingY: "1rem",
+    paddingY: "0.5rem",
+
+    /*
+    On mobile, a padding of 16px is added
+    to the container, this padding takes
+    off from the width of the list and 
+    it doesn't look good. This is a 
+    workaround to that problem
+    */
     position: { base: "absolute", md: "static" },
     left: 0,
     top: 0,
+
     width: "100%",
+    borderBottom: "1px solid var(--chakra-colors-gray-400)",
   },
 });
 

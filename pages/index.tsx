@@ -1,5 +1,5 @@
 import { Navbar, LayoutContainer } from "@/components/general";
-import { StoryList } from "@/components/home";
+import { StoryList, PostList } from "@/components/home";
 import Head from "next/head";
 
 export default function Home() {
@@ -14,6 +14,7 @@ export default function Home() {
       <Navbar />
       <LayoutContainer>
         <StoryList />
+        <PostList />
       </LayoutContainer>
     </>
   );
