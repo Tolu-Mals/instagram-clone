@@ -15,7 +15,7 @@ const settings = {
   useArrows: false,
 };
 
-const storyConfigs = [
+const configs = [
   {
     key: 0,
     imgSrc: "/assets/images/User1.png",
@@ -78,7 +78,7 @@ const Wrapper = chakra(Box, {
 export const StoryList = () => {
   return (
     <Wrapper overflowX="hidden">
-      <Slider {...settings}>{storyConfigs.map(renderStory)}</Slider>
+      <Slider {...settings}>{configs.map(renderStory)}</Slider>
     </Wrapper>
   );
 };
