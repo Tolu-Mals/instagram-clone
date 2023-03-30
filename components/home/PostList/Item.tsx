@@ -1,8 +1,23 @@
 import React from "react";
 import { ProfileWithStatus } from "@/components/general";
-import { MoreIcon, CommentIcon, LikeIcon, ShareIcon, SaveIcon } from "./icons";
-import { Flex, Text, Image, IconButton, Box } from "@chakra-ui/react";
-import { Top, Actions, NoOfLikes, UserName, TimePosted, Card } from "./styles";
+import {
+  MoreIcon,
+  CommentIcon,
+  LikeIcon,
+  ShareIcon,
+  SaveIcon,
+  EmojiIcon,
+} from "./icons";
+import { Flex, Text, Image, IconButton, Box, Input } from "@chakra-ui/react";
+import {
+  Top,
+  Actions,
+  NoOfLikes,
+  UserName,
+  TimePosted,
+  Card,
+  CommentBox,
+} from "./styles";
 import { ItemProps } from "./types";
 
 const truncateText = (text: string): string => {
@@ -76,12 +91,37 @@ const Item = ({
     </Box>
   );
 
+  const commentBox = (
+    <CommentBox>
+      <Flex>
+        <IconButton
+          aria-label="Add emoji"
+          icon={<EmojiIcon boxSize="24px" />}
+          bg="transparent"
+        />
+        <Input
+          placeholder="Add a comment..."
+          sx={{
+            paddingLeft: 2,
+            fontSize: "14px",
+            "&:hover, &:focus": {
+              borderColor: "transparent",
+              outline: "none",
+              boxShadow: "none",
+            },
+          }}
+        />
+      </Flex>
+    </CommentBox>
+  );
+
   return (
     <Card>
       {top}
       <Image src={imgSrc} alt={imgAlt} width="100%" />
       {actions}
       {details}
+      {commentBox}
     </Card>
   );
 };

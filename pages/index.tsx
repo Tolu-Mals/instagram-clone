@@ -1,5 +1,6 @@
 import { Navbar, LayoutContainer } from "@/components/general";
 import { StoryList, PostList } from "@/components/home";
+import { Box } from "@chakra-ui/react";
 import Head from "next/head";
 
 export default function Home() {
@@ -13,8 +14,10 @@ export default function Home() {
       </Head>
       <Navbar />
       <LayoutContainer>
-        <StoryList />
-        <PostList />
+        <Box>
+          <StoryList />
+          <PostList />
+        </Box>
       </LayoutContainer>
     </>
   );

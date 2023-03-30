@@ -3,7 +3,7 @@ import { chakra, Flex, Text } from "@chakra-ui/react";
 export const Card = chakra("article", {
   baseStyle: {
     borderBottom: '1px solid var(--chakra-colors-gray-400)',
-    paddingBottom: '16px',
+    paddingBottom: '8px',
     backgroundColor: '#fff',
   },
 });
@@ -46,5 +46,15 @@ export const TimePosted = chakra(Text, {
     textTransform: 'uppercase',
     color: 'gray.500',
     fontSize: '10px',
+    marginBottom: '16px',
+  }
+});
+
+export const CommentBox = chakra(Flex, {
+  baseStyle: {
+    paddingX: '16px',
+    // borderTop: '1px solid var(--chakra-colors-gray-400)',
+    alignItems: 'center',
+
   }
 });
