@@ -12,6 +12,7 @@ import Image from "next/image";
 import { Search2Icon } from "@chakra-ui/icons";
 import { NavLinkConfig } from "./types";
 import { LayoutContainer } from "@/components/general";
+import { desktopNavLinkConfigs, mobileNavConfigs } from "./data";
 
 const Wrapper = chakra("div", {
   baseStyle: {
@@ -56,39 +57,6 @@ const searchBar = (
   </InputGroup>
 );
 
-const navLinkConfigs: NavLinkConfig[] = [
-  {
-    key: 0,
-    href: "/",
-    imgSrc: "/assets/icons/Home.svg",
-    imgAlt: "Home icon",
-  },
-  {
-    key: 1,
-    href: "/",
-    imgSrc: "/assets/icons/Messenger.svg",
-    imgAlt: "Messenger icon",
-  },
-  {
-    key: 2,
-    href: "/",
-    imgSrc: "/assets/icons/NewPosts.svg",
-    imgAlt: "New post icon",
-  },
-  {
-    key: 3,
-    href: "/",
-    imgSrc: "/assets/icons/FindPeople.svg",
-    imgAlt: "Explore icon",
-  },
-  {
-    key: 4,
-    href: "/",
-    imgSrc: "/assets/icons/ActivityFeed.svg",
-    imgAlt: "Activity feed icon",
-  },
-];
-
 const renderNavLink = ({ key, href, imgSrc, imgAlt }: NavLinkConfig) => {
   return (
     <Link as={NextLink} href={href} key={key}>
@@ -97,7 +65,7 @@ const renderNavLink = ({ key, href, imgSrc, imgAlt }: NavLinkConfig) => {
   );
 };
 
-const navLinks = navLinkConfigs.map(renderNavLink);
+const navLinks = desktopNavLinkConfigs.map(renderNavLink);
 const navProfileLink = (
   <Link
     as={NextLink}
@@ -117,27 +85,12 @@ const navProfileLink = (
   </Link>
 );
 
-const navLinkGroup = (
+const desktopNavLinkGroup = (
   <Nav>
     {navLinks}
     {navProfileLink}
   </Nav>
 );
-
-const mobileNavConfigs = [
-  {
-    key: 1,
-    href: "/",
-    imgSrc: "/assets/icons/NewPosts.svg",
-    imgAlt: "New post icon",
-  },
-  {
-    key: 2,
-    href: "/",
-    imgSrc: "/assets/icons/ActivityFeed.svg",
-    imgAlt: "Activity feed icon",
-  },
-];
 
 const mobileLinks = mobileNavConfigs.map(renderNavLink);
 const mobileNavLinkGroup = <MobileNav>{mobileLinks}</MobileNav>;
@@ -152,7 +105,7 @@ export const Navbar = () => {
             alignItems: "center",
             justifyContent: "space-between",
             height: "100%",
-            paddingX: { base: "16px", md: "0" },
+            paddingX: { base: "16px", lg: "0" },
           }}
         >
           {/* Shows on desktop and mobile */}
@@ -160,7 +113,7 @@ export const Navbar = () => {
 
           {/* Shows on desktop only */}
           {searchBar}
-          {navLinkGroup}
+          {desktopNavLinkGroup}
 
           {/* Shows on mobile only */}
           {mobileNavLinkGroup}

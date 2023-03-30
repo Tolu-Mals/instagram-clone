@@ -1,13 +1,17 @@
 import React from "react";
 import { ProfileWithStatus } from "@/components/general";
 import { MoreIcon, CommentIcon, LikeIcon, ShareIcon, SaveIcon } from "./icons";
-import { Flex, Text, Image, IconButton, Box, Card } from "@chakra-ui/react";
-import { Top, Actions, NoOfLikes, UserName, TimePosted } from "./styles";
+import { Flex, Text, Image, IconButton, Box } from "@chakra-ui/react";
+import { Top, Actions, NoOfLikes, UserName, TimePosted, Card } from "./styles";
 import { ItemProps } from "./types";
 
+const truncateText = (text: string): string => {
+  return text.substring(0, 50) + "...";
+};
+
 const Item = ({
-  key,
   imgSrc,
+  imgAlt,
   userName,
   noOfLikes,
   descr,
@@ -16,8 +20,8 @@ const Item = ({
   const top = (
     <Top>
       <Flex gap="14px" alignItems="center">
-        <ProfileWithStatus imgSrc="/assets/images/User1.png" size={42} />
-        <Text fontWeight={600}>terrylucas</Text>
+        <ProfileWithStatus imgSrc={imgSrc} size={42} />
+        <Text fontWeight={600}>{userName}</Text>
       </Flex>
 
       <IconButton
@@ -60,27 +64,22 @@ const Item = ({
 
   const details = (
     <Box px="16px">
-      <NoOfLikes>1,069 likes</NoOfLikes>
-      <Text mb="14px">
-        <UserName>terrylucas</UserName>
-        <Text noOfLines={2} display="inline">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit...
-        </Text>
-        <Text color="gray.500" display="inline" as="span">
-          more
-        </Text>
+      <NoOfLikes>{noOfLikes} likes</NoOfLikes>
+      <UserName>{userName}</UserName>
+      <Text noOfLines={2} display="inline">
+        {truncateText(descr)}
       </Text>
-      <TimePosted>1 hour ago</TimePosted>
+      <Text color="gray.500" display="inline" as="span">
+        more
+      </Text>
+      <TimePosted mt="1rem">{timePosted + " ago"}</TimePosted>
     </Box>
   );
+
   return (
     <Card>
       {top}
-      <Image
-        src="/assets/images/User1.png"
-        alt="Picture of user"
-        width="100%"
-      />
+      <Image src={imgSrc} alt={imgAlt} width="100%" />
       {actions}
       {details}
     </Card>
