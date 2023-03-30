@@ -19,7 +19,7 @@ const storyConfigs = [
   {
     key: 0,
     imgSrc: "/assets/images/User1.png",
-    name: "your story",
+    name: "Your Story",
   },
   {
     key: 1,

@@ -11,7 +11,7 @@ import NextLink from "next/link";
 import Image from "next/image";
 import { Search2Icon } from "@chakra-ui/icons";
 import { NavLinkConfig } from "./types";
-import { LayoutContainer } from "@/components/common";
+import { LayoutContainer } from "@/components/general";
 
 const Wrapper = chakra("div", {
   baseStyle: {

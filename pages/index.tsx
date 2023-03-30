@@ -1,4 +1,4 @@
-import { Navbar, LayoutContainer } from "@/components/common";
+import { Navbar, LayoutContainer } from "@/components/general";
 import { StoryList } from "@/components/home";
 import Head from "next/head";
 
