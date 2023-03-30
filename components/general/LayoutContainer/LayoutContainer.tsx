@@ -6,11 +6,21 @@ interface LayoutContainerProps {
   height?: string | number;
 }
 
-export const LayoutContainer = ({ children, height }: LayoutContainerProps) => {
+/**
+ * It's used as a container to center and apply
+ * a consistent maxWidth to the layout
+ * @children Elements wrapped inside the container
+ * @height Optionally specify the height of the container
+ */
+
+export const LayoutContainer = ({
+  children,
+  height = "",
+}: LayoutContainerProps) => {
   return (
     <Container
       maxWidth="935px"
-      height={height ?? ""}
+      height={height}
       position={{ base: "relative", md: "static" }}
     >
       {children}
