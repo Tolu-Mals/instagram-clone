@@ -152,6 +152,7 @@ export const Navbar = () => {
             alignItems: "center",
             justifyContent: "space-between",
             height: "100%",
+            paddingX: { base: "16px", md: "0" },
           }}
         >
           {/* Shows on desktop and mobile */}

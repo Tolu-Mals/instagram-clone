@@ -18,15 +18,7 @@ export const LayoutContainer = ({
   height = "",
 }: LayoutContainerProps) => {
   return (
-    <Container
-      maxWidth="935px"
-      height={height}
-      /*
-      This is used to position the StoryList 
-      component nicely on mobile views
-      */
-      position={{ base: "relative", md: "static" }}
-    >
+    <Container maxWidth="935px" height={height} padding={{ base: "0" }}>
       {children}
     </Container>
   );
