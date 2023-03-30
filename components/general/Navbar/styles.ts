@@ -26,7 +26,7 @@ export const BottomNav = chakra("nav", {
   baseStyle: {
     display: { base: "flex", md: "none" },
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     backgroundColor: '#fff',
     paddingX: '16px',
     borderTop: '1px solid var(--chakra-colors-gray-400)',
