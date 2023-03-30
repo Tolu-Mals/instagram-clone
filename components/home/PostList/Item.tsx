@@ -1,31 +1,11 @@
 import React from "react";
 import { ProfileWithStatus } from "@/components/general";
 import { MoreIcon, CommentIcon, LikeIcon, ShareIcon, SaveIcon } from "./icons";
-import { chakra, Flex, Text, Image, IconButton } from "@chakra-ui/react";
-
-const Card = chakra("article", {
-  baseStyle: {},
-});
-
-const CardTop = chakra(Flex, {
-  baseStyle: {
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingY: "12px",
-    paddingLeft: "16px",
-    paddingRight: "8px",
-  },
-});
-
-const CardActions = chakra(Flex, {
-  baseStyle: {
-    justifyContent: "space-between",
-    paddingY: "8px",
-  },
-});
+import { Flex, Text, Image, IconButton, Box, Card } from "@chakra-ui/react";
+import { Top, Actions, NoOfLikes, UserName, TimePosted } from "./styles";
 
 const top = (
-  <CardTop>
+  <Top>
     <Flex gap="14px" alignItems="center">
       <ProfileWithStatus imgSrc="/assets/images/User1.png" size={42} />
       <Text fontWeight={600}>terrylucas</Text>
@@ -36,11 +16,11 @@ const top = (
       icon={<MoreIcon boxSize="24px" />}
       bg="transparent"
     />
-  </CardTop>
+  </Top>
 );
 
 const actions = (
-  <CardActions>
+  <Actions>
     <Flex alignItems="center">
       <IconButton
         aria-label="Like a post"
@@ -66,7 +46,23 @@ const actions = (
       icon={<SaveIcon boxSize="24px" />}
       bg="transparent"
     />
-  </CardActions>
+  </Actions>
+);
+
+const details = (
+  <Box px="16px">
+    <NoOfLikes>1,069 likes</NoOfLikes>
+    <Text mb="14px">
+      <UserName>terrylucas</UserName>
+      <Text noOfLines={2} display="inline">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit...
+      </Text>
+      <Text color="gray.500" display="inline" as="span">
+        more
+      </Text>
+    </Text>
+    <TimePosted>1 hour ago</TimePosted>
+  </Box>
 );
 
 const Item = () => {
@@ -79,6 +75,7 @@ const Item = () => {
         width="100%"
       />
       {actions}
+      {details}
     </Card>
   );
 };
