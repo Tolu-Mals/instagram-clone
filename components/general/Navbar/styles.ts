@@ -4,7 +4,7 @@ export const Wrapper = chakra("div", {
   baseStyle: {
     borderBottom: "1px solid var(--chakra-colors-gray-400)",
     height: "53px",
-    backgroundColor: { base: '#fff', md: 'unset' }
+    backgroundColor: { base: '#fff', md: 'unset' },
   },
 });
 

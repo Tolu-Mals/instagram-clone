@@ -7,7 +7,6 @@ const colors = {
     400: '#DBDBDB',
     300: '#C7C7C7',
     200: '#FAFAFA',
-    100: '#262626'
   }
 }
 

@@ -93,6 +93,7 @@ const Wrapper = chakra(Box, {
     paddingY: "0.5rem",
     width: "100%",
     borderBottom: "1px solid var(--chakra-colors-gray-400)",
+    backgroundColor: "gray.200",
   },
 });
 

@@ -5,7 +5,12 @@ import Head from "next/head";
 
 export default function Home() {
   return (
-    <>
+    /*
+    The padding is to prevent
+    the bottom nav from blocking
+    some of the content in PostList
+    */
+    <Box paddingBottom="49px">
       <Head>
         <title>Instagram</title>
         <meta name="description" content="Instgram clone home page" />
@@ -19,6 +24,6 @@ export default function Home() {
           <PostList />
         </Box>
       </LayoutContainer>
-    </>
+    </Box>
   );
 }

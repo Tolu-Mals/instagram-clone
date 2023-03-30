@@ -8,7 +8,15 @@ import {
   SaveIcon,
   EmojiIcon,
 } from "./icons";
-import { Flex, Text, Image, IconButton, Box, Input } from "@chakra-ui/react";
+import {
+  Flex,
+  Text,
+  Image,
+  IconButton,
+  Box,
+  Input,
+  Button,
+} from "@chakra-ui/react";
 import {
   Top,
   Actions,
@@ -112,6 +120,9 @@ const Item = ({
           }}
         />
       </Flex>
+      <Button variant="unstyled" color="blue" fontSize="14px">
+        Post
+      </Button>
     </CommentBox>
   );
 

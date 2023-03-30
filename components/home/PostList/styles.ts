@@ -53,8 +53,7 @@ export const TimePosted = chakra(Text, {
 export const CommentBox = chakra(Flex, {
   baseStyle: {
     paddingX: '16px',
-    // borderTop: '1px solid var(--chakra-colors-gray-400)',
     alignItems: 'center',
-
+    justifyContent: 'space-between',
   }
 });
