@@ -10,9 +10,30 @@ const settings = {
   dots: false,
   infinite: false,
   speed: 500,
-  slidesToShow: 3.7,
-  slidesToScroll: 3,
   useArrows: false,
+  responsive: [
+    {
+      breakpoint: 2560,
+      settings: {
+        slidesToShow: 7,
+        slidesToScroll: 7,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 4.7,
+        slidesToScroll: 4,
+      },
+    },
+    {
+      breakpoint: 400,
+      settings: {
+        slidesToShow: 3.7,
+        slidesToScroll: 3,
+      },
+    },
+  ],
 };
 
 const configs = [
