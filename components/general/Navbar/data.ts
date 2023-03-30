@@ -47,3 +47,34 @@ export const mobileNavConfigs = [
     imgAlt: "Activity feed icon",
   },
 ];
+
+export const bottomNavConfigs = [
+  {
+    key: 1,
+    href: "/",
+    imgSrc: "/assets/icons/Home.svg",
+    imgAlt: "Home icon",
+    size: 24,
+  },
+  {
+    key: 2,
+    href: "/",
+    imgSrc: "/assets/icons/Search.svg",
+    imgAlt: "Search icon",
+    size: 24,
+  },
+  {
+    key: 3,
+    href: "/",
+    imgSrc: "/assets/icons/Reels.svg",
+    imgAlt: "Reels icon",
+    size: 24,
+  },
+  {
+    key: 4,
+    href: "/",
+    imgSrc: "/assets/icons/Messenger.svg",
+    imgAlt: "Messenger icon",
+    size: 24,
+  },
+];

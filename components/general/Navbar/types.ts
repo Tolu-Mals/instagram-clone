@@ -3,4 +3,5 @@ export interface NavLinkConfig {
   href: string;
   imgSrc: string;
   imgAlt: string;
+  size?: number;
 }

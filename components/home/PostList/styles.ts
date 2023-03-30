@@ -1,7 +1,11 @@
 import { chakra, Flex, Text } from "@chakra-ui/react";
 
 export const Card = chakra("article", {
-  baseStyle: {},
+  baseStyle: {
+    borderBottom: '1px solid var(--chakra-colors-gray-400)',
+    paddingBottom: '16px',
+    backgroundColor: '#fff',
+  },
 });
 
 export const Top = chakra(Flex, {

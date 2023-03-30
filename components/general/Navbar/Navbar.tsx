@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  chakra,
   Input,
   InputGroup,
   InputLeftElement,
@@ -12,28 +11,12 @@ import Image from "next/image";
 import { Search2Icon } from "@chakra-ui/icons";
 import { NavLinkConfig } from "./types";
 import { LayoutContainer } from "@/components/general";
-import { desktopNavLinkConfigs, mobileNavConfigs } from "./data";
-
-const Wrapper = chakra("div", {
-  baseStyle: {
-    borderBottom: "1px solid var(--chakra-colors-gray-400)",
-    height: "53px",
-  },
-});
-
-const Nav = chakra("nav", {
-  baseStyle: {
-    display: { base: "none", md: "flex" },
-    gap: "22px",
-  },
-});
-
-const MobileNav = chakra("nav", {
-  baseStyle: {
-    display: { base: "flex", md: "none" },
-    gap: "22px",
-  },
-});
+import {
+  desktopNavLinkConfigs,
+  mobileNavConfigs,
+  bottomNavConfigs,
+} from "./data";
+import { Nav, MobileNav, Wrapper, BottomNav } from "./styles";
 
 const brand = (
   <Link as={NextLink} href="/" display="block">
@@ -57,10 +40,16 @@ const searchBar = (
   </InputGroup>
 );
 
-const renderNavLink = ({ key, href, imgSrc, imgAlt }: NavLinkConfig) => {
+const renderNavLink = ({
+  key,
+  href,
+  imgSrc,
+  imgAlt,
+  size = 22,
+}: NavLinkConfig) => {
   return (
     <Link as={NextLink} href={href} key={key}>
-      <Image src={imgSrc} alt={imgAlt} width={22} height={22} />
+      <Image src={imgSrc} alt={imgAlt} width={size} height={size} />
     </Link>
   );
 };
@@ -92,8 +81,16 @@ const desktopNavLinkGroup = (
   </Nav>
 );
 
-const mobileLinks = mobileNavConfigs.map(renderNavLink);
-const mobileNavLinkGroup = <MobileNav>{mobileLinks}</MobileNav>;
+const mobileNavLinks = mobileNavConfigs.map(renderNavLink);
+const mobileNavLinkGroup = <MobileNav>{mobileNavLinks}</MobileNav>;
+
+const bottomNavLinks = bottomNavConfigs.map(renderNavLink);
+const bottomNav = (
+  <BottomNav>
+    {bottomNavLinks}
+    {navProfileLink}
+  </BottomNav>
+);
 
 export const Navbar = () => {
   return (
@@ -117,6 +114,7 @@ export const Navbar = () => {
 
           {/* Shows on mobile only */}
           {mobileNavLinkGroup}
+          {bottomNav}
         </Box>
       </LayoutContainer>
     </Wrapper>
