@@ -112,6 +112,7 @@ const Item = ({
           sx={{
             paddingLeft: 2,
             fontSize: "14px",
+            borderColor: "transparent",
             "&:hover, &:focus": {
               borderColor: "transparent",
               outline: "none",
