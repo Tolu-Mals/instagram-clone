@@ -12,7 +12,7 @@ const configs: ItemProps[] = [
     key: 0,
     imgSrc: "/assets/images/User1.png",
     imgAlt: "Image of person",
-    userName: "Your Story",
+    userName: "tolumals",
     noOfLikes: 1200,
     descr:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor maxime aut, aspernatur unde inventore nemo, nisi laboriosam facere voluptatem deleniti harum cupiditate non iure, tenetur officia corrupti sint deserunt. Velit nemo doloribus libero perspiciatis incidunt corrupti suscipit odit possimus ducimus?",
