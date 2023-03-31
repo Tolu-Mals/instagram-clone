@@ -6,8 +6,19 @@ import Head from "next/head";
 
 const TwoColumnGrid = chakra("div", {
   baseStyle: {
-    display: { md: "grid" },
     width: "100%",
+    display: { md: "flex" },
+    marginTop: { md: "27.5" },
+    gap: "30px",
+  },
+});
+
+const Main = chakra("main", {
+  baseStyle: {
+    border: { md: "1px solid var(--chakra-colors-gray-400)" },
+    maxWidth: { md: "614px" },
+    height: "100vh",
+    overflowY: "scroll",
   },
 });
 
@@ -28,15 +39,10 @@ export default function Home() {
       <Navbar />
       <LayoutContainer>
         <TwoColumnGrid>
-          <Box
-            sx={{
-              border: "1px solid var(--chakra-colors-gray-400)",
-              maxWidth: "614px",
-            }}
-          >
+          <Main>
             <StoryList />
             <PostList />
-          </Box>
+          </Main>
           <SideBar />
         </TwoColumnGrid>
       </LayoutContainer>
