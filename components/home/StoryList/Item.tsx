@@ -2,12 +2,14 @@ import { chakra, Text, Flex } from "@chakra-ui/react";
 import { ProfileWithStatusProps } from "@/components/general/ProfileWithStatus/types";
 import { ProfileWithStatus } from "@/components/general";
 
-const Wrapper = chakra(Flex, {
+const Wrapper = chakra("a", {
   baseStyle: {
+    display: "flex",
     width: "80px",
     flexDirection: "column",
     alignItems: "center",
     textAlign: "center",
+    cursor: "pointer",
   },
 });
 

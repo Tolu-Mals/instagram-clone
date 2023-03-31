@@ -18,7 +18,12 @@ export const LayoutContainer = ({
   height = "",
 }: LayoutContainerProps) => {
   return (
-    <Container maxWidth="935px" height={height} padding={{ base: "0" }}>
+    <Container
+      maxWidth="935px"
+      width="100%"
+      height={height}
+      padding={{ base: "0" }}
+    >
       {children}
     </Container>
   );

@@ -5,6 +5,7 @@ export const Card = chakra("article", {
     borderBottom: '1px solid var(--chakra-colors-gray-400)',
     paddingBottom: '8px',
     backgroundColor: '#fff',
+    maxWidth: '614px',
   },
 });
 

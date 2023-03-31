@@ -33,7 +33,7 @@ export const BottomNav = chakra("nav", {
     position: 'fixed',
     bottom: 0,
     left: 0,
-    width: '100%',
+    width: '100vw',
     height: '50px',
     zIndex: 10,
   },

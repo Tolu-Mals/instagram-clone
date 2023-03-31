@@ -1,8 +1,14 @@
 import { Navbar, LayoutContainer } from "@/components/general";
 import { StoryList, PostList, SideBar } from "@/components/home";
-import { TwoColumnGrid } from "@/components/home/styles";
 import { Box } from "@chakra-ui/react";
+import { chakra } from "@chakra-ui/react";
 import Head from "next/head";
+
+const TwoColumnGrid = chakra("div", {
+  baseStyle: {
+    display: { md: "grid" },
+  },
+});
 
 export default function Home() {
   return (
@@ -11,7 +17,7 @@ export default function Home() {
     the mobile bottom nav from blocking
     some of the content in PostList
     */
-    <Box paddingBottom={{ base: "49px", md: 0 }}>
+    <Box paddingBottom={{ base: "49px", md: 0 }} overflow="hidden">
       <Head>
         <title>Instagram</title>
         <meta name="description" content="Instgram clone home page" />
@@ -21,7 +27,7 @@ export default function Home() {
       <Navbar />
       <LayoutContainer>
         <TwoColumnGrid>
-          <Box>
+          <Box width="100%">
             <StoryList />
             <PostList />
           </Box>

@@ -91,15 +91,15 @@ const renderStory = (story: Story) => (
 const Wrapper = chakra(Box, {
   baseStyle: {
     paddingY: "0.5rem",
-    width: "100%",
     borderBottom: "1px solid var(--chakra-colors-gray-400)",
     backgroundColor: "gray.200",
+    maxWidth: { md: "614px" },
   },
 });
 
 export const StoryList = () => {
   return (
-    <Wrapper overflowX="hidden">
+    <Wrapper>
       <Slider {...settings}>{configs.map(renderStory)}</Slider>
     </Wrapper>
   );
