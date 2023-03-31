@@ -23,5 +23,6 @@ export const Wrapper = chakra("aside", {
 export const Suggestions = chakra(Flex, {
   baseStyle: {
     flexDirection: 'column',
+    marginBottom: '14px',
   },
 });

@@ -1,7 +1,10 @@
 import React from "react";
-import { Flex, Text, Button, Box } from "@chakra-ui/react";
+import { Flex, Text, Button, Box, Link } from "@chakra-ui/react";
 import Image from "next/image";
 import { Top, Wrapper, Suggestions } from "./styles";
+import { suggestionConfigs, linkConfigs } from "./data";
+import { LinkType, SuggestionItem } from "./types";
+import NextLink from "next/link";
 
 const top = (
   <Top>
@@ -25,52 +28,6 @@ const top = (
     <Button variant="bare">Switch</Button>
   </Top>
 );
-
-const suggestionConfigs = [
-  {
-    key: 4,
-    imgSrc: "/assets/images/User5.png",
-    imgAlt: "Image of person",
-    userName: "ednamanz",
-    followedBy: "Followed by terylucas + 2 more",
-  },
-  {
-    key: 5,
-    imgSrc: "/assets/images/User6.png",
-    imgAlt: "Image of person",
-    userName: "christinaste",
-    followedBy: "Followed by terylucas + 2 more",
-  },
-  {
-    key: 6,
-    imgSrc: "/assets/images/User7.png",
-    imgAlt: "Image of person",
-    userName: "johnschmit",
-    followedBy: "Followed by terylucas + 2 more",
-  },
-  {
-    key: 7,
-    imgSrc: "/assets/images/User8.png",
-    imgAlt: "Image of person",
-    userName: "amyporte",
-    followedBy: "Followed by terylucas + 2 more",
-  },
-  {
-    key: 8,
-    imgSrc: "/assets/images/User9.png",
-    imgAlt: "Image of person",
-    userName: "joeburton",
-    followedBy: "Followed by terylucas + 2 more",
-  },
-];
-
-interface SuggestionItem {
-  key: number;
-  imgSrc: string;
-  imgAlt: string;
-  userName: string;
-  followedBy: string;
-}
 
 const renderSuggestionItem = ({
   key,
@@ -113,9 +70,21 @@ const suggestions = (
         See All
       </Button>
     </Flex>
-
     {suggestionConfigs.map(renderSuggestionItem)}
   </Suggestions>
+);
+
+const renderFooterLink = ({ key, href, text }: LinkType) => {
+  return (
+    <Link as={NextLink} href={href} key={key} color="gray.300" fontSize="14px">
+      {text}
+    </Link>
+  );
+};
+const footerLinks = (
+  <Flex flexWrap="wrap" gap="8px">
+    {linkConfigs.map(renderFooterLink)}
+  </Flex>
 );
 
 export const SideBar = () => {
@@ -123,6 +92,7 @@ export const SideBar = () => {
     <Wrapper>
       {top}
       {suggestions}
+      {footerLinks}
     </Wrapper>
   );
 };
