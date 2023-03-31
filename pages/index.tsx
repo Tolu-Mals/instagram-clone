@@ -7,6 +7,7 @@ import Head from "next/head";
 const TwoColumnGrid = chakra("div", {
   baseStyle: {
     display: { md: "grid" },
+    width: "100%",
   },
 });
 
@@ -27,7 +28,12 @@ export default function Home() {
       <Navbar />
       <LayoutContainer>
         <TwoColumnGrid>
-          <Box width="100%">
+          <Box
+            sx={{
+              border: "1px solid var(--chakra-colors-gray-400)",
+              maxWidth: "614px",
+            }}
+          >
             <StoryList />
             <PostList />
           </Box>

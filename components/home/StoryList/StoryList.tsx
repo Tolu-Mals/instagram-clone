@@ -10,12 +10,13 @@ const settings = {
   dots: false,
   infinite: false,
   speed: 500,
-  useArrows: false,
+  arrows: false,
   responsive: [
     {
       breakpoint: 2560,
       settings: {
         slidesToShow: 7,
+        useArrows: false,
         slidesToScroll: 7,
       },
     },
@@ -24,6 +25,7 @@ const settings = {
       settings: {
         slidesToShow: 4.7,
         slidesToScroll: 4,
+        useArrows: false,
       },
     },
     {
@@ -31,6 +33,7 @@ const settings = {
       settings: {
         slidesToShow: 3.7,
         slidesToScroll: 3,
+        useArrows: false,
       },
     },
   ],
@@ -90,10 +93,10 @@ const renderStory = (story: Story) => (
 
 const Wrapper = chakra(Box, {
   baseStyle: {
-    paddingY: "0.5rem",
+    paddingY: "0.8rem",
     borderBottom: "1px solid var(--chakra-colors-gray-400)",
     backgroundColor: "gray.200",
-    maxWidth: { md: "614px" },
+    width: "100%",
   },
 });
 
