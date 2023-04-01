@@ -2,7 +2,7 @@ import { Navbar } from "@/components/general";
 import { Box, Center } from "@chakra-ui/react";
 import Head from "next/head";
 
-export default function CreatePost() {
+export default function Search() {
   return (
     /*
     The padding is to prevent
@@ -18,7 +18,7 @@ export default function CreatePost() {
       </Head>
       <Navbar />
       <Center bg="gray.300" color="gray.600" height="100vh">
-        Create Post
+        Search
       </Center>
     </Box>
   );

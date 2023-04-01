@@ -2,7 +2,7 @@ import { Navbar } from "@/components/general";
 import { Box, Center } from "@chakra-ui/react";
 import Head from "next/head";
 
-export default function Messages() {
+export default function Explore() {
   return (
     /*
     The padding is to prevent
@@ -13,7 +13,7 @@ export default function Messages() {
       <Head>
         <title>Instagram</title>
         <meta name="description" content="Instgram clone home page" />
-        <meta name="viewport" content="kwidth=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
       <Navbar />

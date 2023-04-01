@@ -9,12 +9,14 @@ import NextLink from "next/link";
 const top = (
   <Top>
     <Flex alignItems="center">
-      <Image
-        src="/assets/images/User1.png"
-        width={56}
-        height={56}
-        alt="Image of user"
-      />
+      <NextLink href="/profile">
+        <Image
+          src="/assets/images/User1.png"
+          width={56}
+          height={56}
+          alt="Image of user"
+        />
+      </NextLink>
       <Flex gap="4px" flexDirection="column">
         <Text fontWeight={600} fontSize="14px">
           tolumals
