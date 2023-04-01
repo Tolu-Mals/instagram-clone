@@ -4,4 +4,5 @@ export interface NavLinkConfig {
   imgSrc: string;
   imgAlt: string;
   size?: number;
+  isActive?: boolean;
 }

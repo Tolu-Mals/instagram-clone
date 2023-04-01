@@ -17,6 +17,7 @@ import {
   bottomNavConfigs,
 } from "./data";
 import { Nav, MobileNav, Wrapper, BottomNav } from "./styles";
+import { useRouter } from "next/router";
 
 const brand = (
   <Link as={NextLink} href="/" display="block">
@@ -40,59 +41,70 @@ const searchBar = (
   </InputGroup>
 );
 
-const renderNavLink = ({
-  key,
-  href,
-  imgSrc,
-  imgAlt,
-  size = 22,
-}: NavLinkConfig) => {
-  return (
-    <Link as={NextLink} href={href} key={key}>
-      <Image src={imgSrc} alt={imgAlt} width={size} height={size} />
+export const Navbar = () => {
+  const router = useRouter();
+
+  const renderNavLink = ({
+    key,
+    href,
+    imgSrc,
+    imgAlt,
+    size = 22,
+  }: NavLinkConfig) => {
+    const hasFill = ["/", "/messages", "/activity", "/explore"].includes(
+      router.asPath
+    );
+    let isActive = hasFill && href === router.asPath;
+
+    return (
+      <Link as={NextLink} href={href} key={key}>
+        <Image
+          src={isActive ? imgSrc.replace(".svg", "-Fill.svg") : imgSrc}
+          alt={imgAlt}
+          width={size}
+          height={size}
+        />
+      </Link>
+    );
+  };
+
+  const navLinks = desktopNavLinkConfigs.map(renderNavLink);
+  const navProfileLink = (
+    <Link
+      as={NextLink}
+      href="/profile"
+      sx={{
+        img: {
+          borderRadius: "50%",
+        },
+      }}
+    >
+      <Image
+        src="/assets/images/User1.png"
+        alt="Profile picture"
+        width={24}
+        height={24}
+      />
     </Link>
   );
-};
 
-const navLinks = desktopNavLinkConfigs.map(renderNavLink);
-const navProfileLink = (
-  <Link
-    as={NextLink}
-    href="/profile"
-    sx={{
-      img: {
-        borderRadius: "50%",
-      },
-    }}
-  >
-    <Image
-      src="/assets/images/User1.png"
-      alt="Profile picture"
-      width={24}
-      height={24}
-    />
-  </Link>
-);
+  const desktopNavLinkGroup = (
+    <Nav>
+      {navLinks}
+      {navProfileLink}
+    </Nav>
+  );
 
-const desktopNavLinkGroup = (
-  <Nav>
-    {navLinks}
-    {navProfileLink}
-  </Nav>
-);
+  const mobileNavLinks = mobileNavConfigs.map(renderNavLink);
+  const mobileNavLinkGroup = <MobileNav>{mobileNavLinks}</MobileNav>;
 
-const mobileNavLinks = mobileNavConfigs.map(renderNavLink);
-const mobileNavLinkGroup = <MobileNav>{mobileNavLinks}</MobileNav>;
-
-const bottomNavLinks = bottomNavConfigs.map(renderNavLink);
-const bottomNav = (
-  <BottomNav>
-    {bottomNavLinks}
-    {navProfileLink}
-  </BottomNav>
-);
-
-export const Navbar = () => {
+  const bottomNavLinks = bottomNavConfigs.map(renderNavLink);
+  const bottomNav = (
+    <BottomNav>
+      {bottomNavLinks}
+      {navProfileLink}
+    </BottomNav>
+  );
   return (
     <Wrapper>
       <LayoutContainer height="100%">
