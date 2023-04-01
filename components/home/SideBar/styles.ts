@@ -15,6 +15,7 @@ export const Top = chakra(Flex, {
 
 export const Wrapper = chakra("aside", {
   baseStyle: {
+    display: { base: 'none', md: 'block' },
     paddingY: "8px",
     width: "100%",
   },
