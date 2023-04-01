@@ -83,6 +83,7 @@ const renderFooterLink = ({ key, href, text }: LinkType) => {
     </Link>
   );
 };
+
 const footerLinks = (
   <Flex flexWrap="wrap" gap="8px">
     {linkConfigs.map(renderFooterLink)}

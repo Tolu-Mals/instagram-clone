@@ -28,10 +28,6 @@ import {
 } from "./styles";
 import { ItemProps } from "./types";
 
-const truncateText = (text: string): string => {
-  return text.substring(0, 50) + "...";
-};
-
 const Item = ({
   imgSrc,
   imgAlt,
@@ -84,6 +80,10 @@ const Item = ({
       />
     </Actions>
   );
+
+  const truncateText = (text: string): string => {
+    return text.substring(0, 50) + "...";
+  };
 
   const details = (
     <Box px="16px">

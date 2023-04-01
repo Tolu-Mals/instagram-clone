@@ -1,5 +1,9 @@
 import { chakra, Flex, Text } from "@chakra-ui/react";
 
+export const Wrapper = chakra("section", {
+  baseStyle: {},
+});
+
 export const Card = chakra("article", {
   baseStyle: {
     borderBottom: '1px solid var(--chakra-colors-gray-400)',

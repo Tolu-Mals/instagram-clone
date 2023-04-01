@@ -51,9 +51,13 @@ export const Navbar = () => {
     imgAlt,
     size = 22,
   }: NavLinkConfig) => {
+    //Displays the filled version of a navlink icon when it's the active link
+
+    //Not all icons have a filled version so we check first
     const hasFill = ["/", "/messages", "/activity", "/explore"].includes(
       router.asPath
     );
+
     let isActive = hasFill && href === router.asPath;
 
     return (
@@ -105,6 +109,7 @@ export const Navbar = () => {
       {navProfileLink}
     </BottomNav>
   );
+
   return (
     <Wrapper>
       <LayoutContainer height="100%">

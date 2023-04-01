@@ -1,10 +1,6 @@
 import React from "react";
 import { Container } from "@chakra-ui/react";
-
-interface LayoutContainerProps {
-  children: JSX.Element | JSX.Element[];
-  height?: string | number;
-}
+import { LayoutContainerProps } from "./types";
 
 /**
  * It's used as a container to center and apply
